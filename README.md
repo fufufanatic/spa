@@ -5,7 +5,7 @@ SPA - Tool that triages DISA STIG CAT II items according to NIST SP 800-53 Rev 4
 NOTE - Remember to always address CAT I items first!!!
 
 == HOW TO RUN ==
-
+ 
 Dependencies - Python 3.x
 
 1. Save SPA folder to your local directory
