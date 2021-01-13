@@ -9,6 +9,7 @@ import sys
 
 # list to hold security controls according to NIST priority ... nist_priority[0] -> p0, nist_priority[1] -> p1, etc.
 nist_priority = [ [], [], [], [] ]
+
 # list to hold newly prioritized CAT II items
 ckl_priority = [ [], [], [], [] ]
 
@@ -16,7 +17,7 @@ ckl_priority = [ [], [], [], [] ]
 def set_nist_priority():
     
     for index, priority_level in enumerate(nist_priority):
-        # parsing thru NIST priority files created from https://nvd.nist.gov/800-53/Rev4/search
+        # parsing through NIST priority files created from https://nvd.nist.gov/800-53/Rev4/search
         with open(r'resources\NIST 800-53 Rev 4 - Priority ' + f'{index}.txt', 'r') as f:
             security_control = f.readline().strip()
             # while getting actual values and not EOF
@@ -29,7 +30,7 @@ def get_nist_control(ckl_cci):
     
     nist_result = ''
 
-    # parsing thru the CCI List document retrieved from https://cyber.mil/stigs/cci/
+    # parsing the CCI List document retrieved from https://cyber.mil/stigs/cci/
     mapper = xp.parse(r'resources\U_CCI_List.xml')
     ccis = mapper.getElementsByTagName('cci_item')
     for cci in ccis:
@@ -93,7 +94,7 @@ def show_ckl_priority():
 
 def main():
     set_nist_priority()
-    # the checklist file to be triaged is passed in a parameter
+    # the checklist file to be triaged is passed in as a parameter
     set_ckl_priority( str(sys.argv[1]) )
     show_ckl_priority()
 
